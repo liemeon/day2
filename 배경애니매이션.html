@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body{
+            margin: 0px;
+        }
+        div{
+            background-image: url("../images/game_bg.jpg");
+            background-repeat: repeat-x;
+            height: 640px;
+            /* background-position: -100px 0px; */
+        }
+        #gambler{
+            width: 80px;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            transform: rotate(90deg);
+        }
+    </style>
+    <script>
+        var x = 1280;
+        var r = 0;
+        var gx=0;
+        function moveBg(){
+            r +=5;
+            x -= 10;
+            gx +=10;
+            var bg=document.getElementById("bg");
+            var gam = document.getElementById("gambler");
+            bg.style.backgroundPositionX=x+"px";
+            gam.style.transform = "rotate("+r+"deg)";
+            gam.style.left = gx+"px";
+            if(x==0) x=1280;
+            if(gx==1280) gx=0;
+            setTimeout("moveBg()",10);
+        }
+    </script>
+</head>
+<body>
+    <div id="bg">
+       <button id="Btn" onclick="moveBg()">Game Start!!</button>
+       <img src="../images/gambler.png" id="gambler"/>
+    </div>
+</body>
+</html>
